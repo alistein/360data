@@ -3,7 +3,6 @@
 import * as React from "react"
 
 import { useAuth } from "@/components/auth-provider"
-import { NavDocuments } from "@/components/nav-documents"
 import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
@@ -17,7 +16,16 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import Image from "next/image"
-import { RiDashboardLine, RiListUnordered, RiBarChartLine, RiFolderLine, RiGroupLine, RiCameraLine, RiFileTextLine, RiSettingsLine, RiQuestionLine, RiSearchLine, RiDatabase2Line, RiFileChartLine, RiFileLine } from "@remixicon/react"
+import {
+  RiAdminLine,
+  RiCodeLine,
+  RiCompassDiscoverLine,
+  RiFileChartLine,
+  RiMegaphoneLine,
+  RiQuestionLine,
+  RiSearchLine,
+  RiSettingsLine,
+} from "@remixicon/react"
 
 const mockUser = {
   name: "shadcn",
@@ -28,153 +36,46 @@ const mockUser = {
 const data = {
   navMain: [
     {
-      title: "Dashboard",
-      url: "#",
-      icon: (
-        <RiDashboardLine
-        />
-      ),
+      title: "Explore",
+      url: "/dashboard/explore",
+      icon: <RiCompassDiscoverLine />,
     },
     {
-      title: "Lifecycle",
-      url: "#",
-      icon: (
-        <RiListUnordered
-        />
-      ),
+      title: "Campaigns",
+      url: "/dashboard/campaigns",
+      icon: <RiMegaphoneLine />,
     },
     {
-      title: "Analytics",
-      url: "#",
-      icon: (
-        <RiBarChartLine
-        />
-      ),
+      title: "Reports",
+      url: "/dashboard/reports",
+      icon: <RiFileChartLine />,
     },
     {
-      title: "Projects",
-      url: "#",
-      icon: (
-        <RiFolderLine
-        />
-      ),
+      title: "Developers",
+      url: "/dashboard/developers",
+      icon: <RiCodeLine />,
     },
     {
-      title: "Team",
-      url: "#",
-      icon: (
-        <RiGroupLine
-        />
-      ),
-    },
-  ],
-  navClouds: [
-    {
-      title: "Capture",
-      icon: (
-        <RiCameraLine
-        />
-      ),
-      isActive: true,
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Proposal",
-      icon: (
-        <RiFileTextLine
-        />
-      ),
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Prompts",
-      icon: (
-        <RiFileTextLine
-        />
-      ),
-      url: "#",
-      items: [
-        {
-          title: "Active Proposals",
-          url: "#",
-        },
-        {
-          title: "Archived",
-          url: "#",
-        },
-      ],
+      title: "Management",
+      url: "/dashboard/management",
+      icon: <RiAdminLine />,
     },
   ],
   navSecondary: [
     {
       title: "Settings",
       url: "#",
-      icon: (
-        <RiSettingsLine
-        />
-      ),
+      icon: <RiSettingsLine />,
     },
     {
       title: "Get Help",
       url: "#",
-      icon: (
-        <RiQuestionLine
-        />
-      ),
+      icon: <RiQuestionLine />,
     },
     {
       title: "Search",
       url: "#",
-      icon: (
-        <RiSearchLine
-        />
-      ),
-    },
-  ],
-  documents: [
-    {
-      name: "Data Library",
-      url: "#",
-      icon: (
-        <RiDatabase2Line
-        />
-      ),
-    },
-    {
-      name: "Reports",
-      url: "#",
-      icon: (
-        <RiFileChartLine
-        />
-      ),
-    },
-    {
-      name: "Word Assistant",
-      url: "#",
-      icon: (
-        <RiFileLine
-        />
-      ),
+      icon: <RiSearchLine />,
     },
   ],
 }
@@ -200,7 +101,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:p-1.5!"
             >
-              <a href="/dashboard" className="flex items-center gap-2">
+              <a href="/dashboard/explore" className="flex items-center gap-2">
                 <Image
                   src="/360DataLogo.svg"
                   alt="360Data"
@@ -216,7 +117,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>

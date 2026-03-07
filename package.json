@@ -9,23 +9,31 @@
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "seed:explore": "tsx scripts/seed-explore.ts",
+    "seed:campaigns": "tsx scripts/seed-campaigns.ts",
+    "seed:reports": "tsx scripts/seed-reports.ts",
+    "seed:developers": "tsx scripts/seed-developers.ts",
+    "seed:management": "tsx scripts/seed-management.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
     "@dnd-kit/modifiers": "^9.0.0",
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
+    "@faker-js/faker": "^10.3.0",
     "@remixicon/react": "^4.9.0",
     "@tanstack/react-table": "^8.21.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "firebase": "^12.10.0",
+    "leaflet": "^1.9.4",
     "next": "16.1.6",
     "next-themes": "^0.4.6",
     "radix-ui": "^1.4.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "react-leaflet": "^5.0.0",
     "recharts": "2.15.4",
     "shadcn": "^4.0.0",
     "sonner": "^2.0.7",
@@ -37,6 +45,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.1.18",
+    "@types/leaflet": "^1.9.21",
     "@types/node": "^25.1.0",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
@@ -46,6 +55,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.1.18",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }
