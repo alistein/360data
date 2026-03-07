@@ -109,6 +109,11 @@ export const BENCHMARK_DATA: Record<DistrictId, number> = {
   binagadi: 5400,
   surakhani: 3800,
   yasamal: 10200,
+  sabunchu: 4100,
+  khazar: 5800,
+  nizami_rayon: 7500,
+  balakhani: 3200,
+  mashtaga: 2500,
 }
 
 export function getReportTemplate(id: string): ReportTemplate | undefined {

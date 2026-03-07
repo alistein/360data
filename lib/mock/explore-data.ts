@@ -12,6 +12,11 @@ export type DistrictId =
   | "binagadi"
   | "surakhani"
   | "yasamal"
+  | "sabunchu"
+  | "khazar"
+  | "nizami_rayon"
+  | "mashtaga"
+  | "balakhani"
 
 export type LayerType =
   | "footfall"
@@ -492,6 +497,236 @@ export const DISTRICTS: District[] = [
     incomeZone: 70,
     tourismActivity: 68,
     competitorDensity: 68,
+  },
+  {
+    id: "sabunchu",
+    name: "Sabunchu",
+    polygon: makePolygon(40.442, 49.948, 0.045),
+    avgDailyFootfall: 4120,
+    peakHour: 14,
+    trend: 2.1,
+    peakHours: Array.from({ length: 24 }, (_, h) => ({
+      hour: h,
+      count:
+        h >= 9 && h <= 18
+          ? 140 + Math.abs(h - 14) * 28 + (h === 14 ? 90 : 0)
+          : 40 + h * 2,
+    })),
+    dayOfWeek: DAYS.map((day, i) => ({
+      day,
+      count: 520 + i * 45 + (i >= 5 ? 120 : 0),
+    })),
+    demographics: {
+      age: [
+        { band: "18-24", percent: 26 },
+        { band: "25-34", percent: 34 },
+        { band: "35-44", percent: 26 },
+        { band: "45+", percent: 14 },
+      ],
+      income: { low: 40, mid: 44, high: 16 },
+      genderIndex: 0.99,
+    },
+    dwellTime: { under15: 50, between15and60: 38, over60: 12 },
+    visitorOrigin: [
+      { district: "Surakhani", percent: 30 },
+      { district: "Narimanov", percent: 22 },
+      { district: "Binagadi", percent: 18 },
+      { district: "Khatai", percent: 14 },
+      { district: "Nizami", percent: 8 },
+    ],
+    trendLine: Array.from({ length: 12 }, (_, i) => ({
+      week: i + 1,
+      footfall: 3800 + i * 50 + Math.sin(i * 0.4) * 80,
+    })),
+    footfallDensity: 38,
+    demographicHeat: 55,
+    incomeZone: 45,
+    tourismActivity: 42,
+    competitorDensity: 52,
+  },
+  {
+    id: "balakhani",
+    name: "Balakhani",
+    polygon: makePolygon(40.480, 49.875, 0.042),
+    avgDailyFootfall: 3180,
+    peakHour: 15,
+    trend: 1.2,
+    peakHours: Array.from({ length: 24 }, (_, h) => ({
+      hour: h,
+      count:
+        h >= 8 && h <= 18
+          ? 120 + Math.abs(h - 13) * 20 + (h === 15 ? 70 : 0)
+          : 30 + h * 1,
+    })),
+    dayOfWeek: DAYS.map((day, i) => ({
+      day,
+      count: 420 + i * 38 + (i >= 5 ? 90 : 0),
+    })),
+    demographics: {
+      age: [
+        { band: "18-24", percent: 24 },
+        { band: "25-34", percent: 32 },
+        { band: "35-44", percent: 28 },
+        { band: "45+", percent: 16 },
+      ],
+      income: { low: 48, mid: 38, high: 14 },
+      genderIndex: 0.98,
+    },
+    dwellTime: { under15: 52, between15and60: 36, over60: 12 },
+    visitorOrigin: [
+      { district: "Binagadi", percent: 28 },
+      { district: "Surakhani", percent: 22 },
+      { district: "Narimanov", percent: 18 },
+      { district: "Sabunchu", percent: 14 },
+      { district: "Nizami", percent: 10 },
+    ],
+    trendLine: Array.from({ length: 12 }, (_, i) => ({
+      week: i + 1,
+      footfall: 3000 + i * 25 + Math.sin(i * 0.35) * 80,
+    })),
+    footfallDensity: 32,
+    demographicHeat: 48,
+    incomeZone: 40,
+    tourismActivity: 28,
+    competitorDensity: 42,
+  },
+  {
+    id: "mashtaga",
+    name: "Mashtaga",
+    polygon: makePolygon(40.532, 49.885, 0.05),
+    avgDailyFootfall: 2450,
+    peakHour: 14,
+    trend: 3.5,
+    peakHours: Array.from({ length: 24 }, (_, h) => ({
+      hour: h,
+      count:
+        h >= 9 && h <= 17
+          ? 95 + Math.abs(h - 13) * 18 + (h === 14 ? 55 : 0)
+          : 25 + h * 1,
+    })),
+    dayOfWeek: DAYS.map((day, i) => ({
+      day,
+      count: 320 + i * 30 + (i >= 5 ? 70 : 0),
+    })),
+    demographics: {
+      age: [
+        { band: "18-24", percent: 22 },
+        { band: "25-34", percent: 30 },
+        { band: "35-44", percent: 30 },
+        { band: "45+", percent: 18 },
+      ],
+      income: { low: 52, mid: 35, high: 13 },
+      genderIndex: 0.97,
+    },
+    dwellTime: { under15: 58, between15and60: 32, over60: 10 },
+    visitorOrigin: [
+      { district: "Balakhani", percent: 32 },
+      { district: "Binagadi", percent: 24 },
+      { district: "Surakhani", percent: 18 },
+      { district: "Sabunchu", percent: 12 },
+      { district: "Narimanov", percent: 8 },
+    ],
+    trendLine: Array.from({ length: 12 }, (_, i) => ({
+      week: i + 1,
+      footfall: 2200 + i * 35 + Math.cos(i * 0.4) * 60,
+    })),
+    footfallDensity: 26,
+    demographicHeat: 42,
+    incomeZone: 35,
+    tourismActivity: 38,
+    competitorDensity: 38,
+  },
+  {
+    id: "khazar",
+    name: "Khazar",
+    polygon: makePolygon(40.395, 49.925, 0.05),
+    avgDailyFootfall: 5890,
+    peakHour: 17,
+    trend: 7.2,
+    peakHours: Array.from({ length: 24 }, (_, h) => ({
+      hour: h,
+      count:
+        h >= 9 && h <= 20
+          ? 240 + Math.abs(h - 15) * 38 + (h === 17 ? 140 : 0)
+          : 65 + h * 3,
+    })),
+    dayOfWeek: DAYS.map((day, i) => ({
+      day,
+      count: 720 + i * 65 + (i >= 5 ? 220 : 0),
+    })),
+    demographics: {
+      age: [
+        { band: "18-24", percent: 24 },
+        { band: "25-34", percent: 36 },
+        { band: "35-44", percent: 26 },
+        { band: "45+", percent: 14 },
+      ],
+      income: { low: 32, mid: 50, high: 18 },
+      genderIndex: 1.01,
+    },
+    dwellTime: { under15: 40, between15and60: 45, over60: 15 },
+    visitorOrigin: [
+      { district: "Khatai", percent: 28 },
+      { district: "Narimanov", percent: 22 },
+      { district: "Nizami", percent: 16 },
+      { district: "Nasimi", percent: 14 },
+      { district: "Sabail", percent: 10 },
+    ],
+    trendLine: Array.from({ length: 12 }, (_, i) => ({
+      week: i + 1,
+      footfall: 5200 + i * 95 + Math.sin(i * 0.5) * 150,
+    })),
+    footfallDensity: 62,
+    demographicHeat: 68,
+    incomeZone: 58,
+    tourismActivity: 72,
+    competitorDensity: 65,
+  },
+  {
+    id: "nizami_rayon",
+    name: "Nizami Rayon",
+    polygon: makePolygon(40.408, 49.842, 0.038),
+    avgDailyFootfall: 7560,
+    peakHour: 18,
+    trend: 5.4,
+    peakHours: Array.from({ length: 24 }, (_, h) => ({
+      hour: h,
+      count:
+        h >= 8 && h <= 20
+          ? 280 + Math.abs(h - 14) * 48 + (h === 18 ? 160 : 0)
+          : 85 + h * 3,
+    })),
+    dayOfWeek: DAYS.map((day, i) => ({
+      day,
+      count: 920 + i * 85 + (i >= 5 ? 240 : 0),
+    })),
+    demographics: {
+      age: [
+        { band: "18-24", percent: 27 },
+        { band: "25-34", percent: 35 },
+        { band: "35-44", percent: 24 },
+        { band: "45+", percent: 14 },
+      ],
+      income: { low: 28, mid: 50, high: 22 },
+      genderIndex: 1.04,
+    },
+    dwellTime: { under15: 38, between15and60: 48, over60: 14 },
+    visitorOrigin: [
+      { district: "Nizami", percent: 30 },
+      { district: "Yasamal", percent: 22 },
+      { district: "Nasimi", percent: 18 },
+      { district: "Binagadi", percent: 12 },
+      { district: "Narimanov", percent: 10 },
+    ],
+    trendLine: Array.from({ length: 12 }, (_, i) => ({
+      week: i + 1,
+      footfall: 6800 + i * 90 + Math.sin(i * 0.35) * 120,
+    })),
+    footfallDensity: 68,
+    demographicHeat: 74,
+    incomeZone: 64,
+    tourismActivity: 58,
+    competitorDensity: 62,
   },
 ]
 

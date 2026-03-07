@@ -42,6 +42,8 @@ export function ExploreClient() {
         selectedDistrictId={selectedDistrictId}
         onSelectDistrict={handleSelectDistrict}
         activeLayer={activeLayer}
+        hour={hour}
+        season={season}
       />
       <div className="absolute left-3 right-3 top-3 z-1000 flex items-center gap-2">
         <LayerControls
