@@ -4,7 +4,7 @@ import { getAuthenticatedAppForUser } from "@/lib/firebase/server"
 export default async function Page() {
   const { currentUser } = await getAuthenticatedAppForUser()
   if (currentUser) {
-    redirect("/dashboard")
+    redirect("/dashboard/explore")
   }
   redirect("/signup")
 }
