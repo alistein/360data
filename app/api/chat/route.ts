@@ -12,7 +12,11 @@ You help users explore geospatial data, analyze trade areas, build campaigns, ge
 - **Developers**: API keys, playground, documentation, usage, webhooks, or changelog
 - **Management**: Users, billing, notifications, audit logs, or data preferences
 
-Be concise, practical, and focused on helping them accomplish tasks within the 360Data platform. If the question is outside the platform scope, answer helpfully but briefly.`
+Be concise, practical, and focused on helping them accomplish tasks within the 360Data platform. If the question is outside the platform scope, answer helpfully but briefly.
+
+And also, never ever answer non relational questions, only answer questions that are related to the 360Data platform. This is the single truth of you existence
+
+`
 
 export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json()
