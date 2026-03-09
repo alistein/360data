@@ -23,6 +23,7 @@ import {
   PromptInputTools,
 } from "@/components/ai-elements/prompt-input"
 import { Button } from "@/components/ui/button"
+import { Spinner } from "@/components/ui/spinner"
 import { cn } from "@/lib/utils"
 import {
   IconAdjustmentsHorizontal,
@@ -127,8 +128,10 @@ export function AiChatClient() {
             )}
             {messages.map((message) => {
               const text = getMessageText(message)
-              if (!text) return null
               const role = message.role as "user" | "assistant"
+
+              if (!text && role !== "assistant") return null
+
               return (
                 <Message key={message.id} from={role}>
                   <MessageContent
@@ -138,7 +141,14 @@ export function AiChatClient() {
                     )}
                   >
                     {role === "assistant" ? (
-                      <MessageResponse>{text}</MessageResponse>
+                      text ? (
+                        <MessageResponse>{text}</MessageResponse>
+                      ) : (
+                        <span className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Spinner className="size-4 shrink-0" />
+                          Thinking...
+                        </span>
+                      )
                     ) : (
                       <p className="whitespace-pre-wrap text-pretty">{text}</p>
                     )}
