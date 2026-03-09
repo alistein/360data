@@ -18,6 +18,7 @@ import {
 import Image from "next/image"
 import {
   RiAdminLine,
+  RiChatSmile2Line,
   RiCodeLine,
   RiCompassDiscoverLine,
   RiFileChartLine,
@@ -39,6 +40,11 @@ const data = {
       title: "Explore",
       url: "/dashboard/explore",
       icon: <RiCompassDiscoverLine />,
+    },
+    {
+      title: "Botcell - AI Chat",
+      url: "/dashboard/ai",
+      icon: <RiChatSmile2Line />,
     },
     {
       title: "Campaigns",
